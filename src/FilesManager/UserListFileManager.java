@@ -12,8 +12,6 @@ public class UserListFileManager {
     private static ArrayList<User> userList = new ArrayList<>();
     private static String userListFilePath = "src/Files/userList.txt";
 
-    UserListFileManager(){};
-
     public static void LoadUserList(){
         try (BufferedReader br = new BufferedReader(new FileReader(userListFilePath))){
             String row;
@@ -116,6 +114,10 @@ public class UserListFileManager {
         RemoveUser(user.GetRUN());
         userList.add(user);
         SaveUserList();
+    }
+
+    public static int NumberUserInList(){
+        return userList.size();
     }
 }
 

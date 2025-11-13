@@ -14,8 +14,6 @@ public class LoanListFileManager {
     private static ArrayList<Loan> loanList = new ArrayList<>();
     private static String loanListFilePath = "src/Files/loanList.txt";
 
-    LoanListFileManager(){};
-
     public static void LoadLoanList(){
         try (BufferedReader br = new BufferedReader(new FileReader(loanListFilePath))){
             String row;

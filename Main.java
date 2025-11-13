@@ -55,14 +55,18 @@ public class Main {
                         break;
                     }
                     user.SaveUser();
-                    System.out.println("Usuario creado correctamente");
+                    System.out.println("Usuario creado correctamente. Número de usuarios en listado : " + (UserListFileManager.NumberUserInList()));
+                    System.out.println("");
                     break;
                 case 2:
                     System.out.println("Ingrese el rut del usuario que desea buscar: ");
                     run = scanner.nextLine().toUpperCase();
                     user = UserListFileManager.SearchUser(run);
-                    if(user == null) {break;}
+                    if(user == null) {
+                        System.out.println("Usuario no encontrado.");
+                        break;}
                     user.PrintUserData();
+                    System.out.println("");
                     break;
                 case 3:
                     System.out.println("Ingrese rut del usuario que desea eliminar: ");
@@ -72,7 +76,8 @@ public class Main {
                         break;
                     }
                     UserListFileManager.RemoveUser(run);
-                    System.out.println("Usuario eliminado correctamente");
+                    System.out.println("Usuario eliminado correctamente. Número de usuarios en el listado: " + UserListFileManager.NumberUserInList());
+                    System.out.println("");
                     break;
                 case 4:
                     System.out.println("Ingrese el rut del usuario que desea modificar: ");
@@ -113,6 +118,7 @@ public class Main {
                     UserListFileManager.RemoveUser(run_1);
                     user.SaveUser();
                     System.out.println("Usuario modificado correctamente.");
+                    System.out.println("");
                     break;
                 case 5:
                     System.out.println("Ingrese el ISBN del libro: ");
@@ -131,7 +137,8 @@ public class Main {
                         break;
                     }
                     book.SaveBook();
-                    System.out.println("Libro registrado correctamente");
+                    System.out.println("Libro registrado correctamente. Número de libros en el listado : " + BookListFileManager.NumberBookInList());
+                    System.out.println("");
                     break;
                 case 6:
                     System.out.println("Ingrese el ISBN del libro que desea buscar: ");
@@ -139,12 +146,14 @@ public class Main {
                     book = BookListFileManager.SearchBook(ISBN);
                     if(book == null){break;}
                     book.PrintBookData();
+                    System.out.println("");
                     break;
                 case 7:
                     System.out.println("Ingrese el ISBN del libro que desea eliminar: ");
                     ISBN = scanner.nextLine().toUpperCase();
                     BookListFileManager.RemoveBook(ISBN);
-                    System.out.println("Libro eliminado correctamente");
+                    System.out.println("Libro eliminado correctamente. Número de libros en listado : " + BookListFileManager.NumberBookInList());
+                    System.out.println("");
                     break;
                 case 8:
                     System.out.println("Ingrese el ISBN del libro que desea modificar: ");
@@ -172,6 +181,7 @@ public class Main {
                     BookListFileManager.RemoveBook(ISBN_1);
                     book.SaveBook();
                     System.out.println("Libro editado correctamente");
+                    System.out.println("");
                     break;
                 case 9:
                     System.out.println("Indique el rut del usuario que solicita un libro: ");
@@ -201,6 +211,7 @@ public class Main {
 
                     loan.SaveLoan();
                     System.out.println("Prestamo realizado correctamente.");
+                    System.out.println("");
                     break;
                 case 10:
                     System.out.println("Indique el ISBN del libro a devolver: ");
@@ -225,9 +236,6 @@ public class Main {
                     book.ReturnBook();
                     System.out.println("Entrega realizada con fecha : " + LocalDate.now());
                     break;
-
-                
-                
                 }        
         }   
 

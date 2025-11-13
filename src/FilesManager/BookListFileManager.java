@@ -13,8 +13,6 @@ public class BookListFileManager {
     private static ArrayList<Book> bookList = new ArrayList<>();
     private static String bookListFilePath = "src/Files/bookList.txt";
 
-    BookListFileManager(){};
-
     public static void LoadBookList(){
         try (BufferedReader br = new BufferedReader(new FileReader(bookListFilePath))){
             String row;
@@ -79,6 +77,7 @@ public class BookListFileManager {
                 return true;
             }
         }
+        SaveBookList();
         return false;
     }
     
@@ -102,4 +101,8 @@ public class BookListFileManager {
         bookList.add(book);
         SaveBookList();
         }
+
+    public static int NumberBookInList(){
+        return bookList.size();
+    }
 }
